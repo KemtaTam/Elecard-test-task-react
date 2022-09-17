@@ -1,0 +1,10 @@
+.wrapper{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.notFound{
+	width: 100vw;
+	height: 95vh;
+}

@@ -1,0 +1,11 @@
+.wrapper{
+	margin-left: 9px;
+	border-left: 1px dotted grey;
+	padding-left: 10px;
+}
+
+.category{
+	font-weight: 600;
+	font-size: 20px;
+	cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.loader_wrapper{
+	margin-left: auto;
+	margin-right: auto;
+}
+.loader{
+	height: 8%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	z-index: 10;
+}

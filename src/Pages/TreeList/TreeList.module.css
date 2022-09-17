@@ -1,0 +1,16 @@
+.wrapper {
+	margin-top: 100px;
+	margin-left: 20px;
+	padding-bottom: 200px;
+}
+
+.root {
+	font-weight: 600;
+	font-size: 22px;
+	cursor: pointer;
+}
+
+.error {
+	font-size: 30px;
+	color: red;
+}
