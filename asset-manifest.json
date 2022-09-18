@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.91b5387c.css",
-    "main.js": "/static/js/main.738e7690.js",
-    "static/media/404-Page.gif": "/static/media/404-Page.fd522f098fee3ec1689f.gif",
-    "static/media/preloader.gif": "/static/media/preloader.47e35355e3e2b17ecb26.gif",
-    "static/media/logo.svg": "/static/media/logo.29757b6fb2e80b1863c2fab7c9d475b4.svg",
-    "index.html": "/index.html",
-    "main.91b5387c.css.map": "/static/css/main.91b5387c.css.map",
-    "main.738e7690.js.map": "/static/js/main.738e7690.js.map"
+    "main.css": "/Elecard-test-task-react/static/css/main.1140366f.css",
+    "main.js": "/Elecard-test-task-react/static/js/main.9eaa1677.js",
+    "static/media/404-Page.gif": "/Elecard-test-task-react/static/media/404-Page.fd522f098fee3ec1689f.gif",
+    "static/media/preloader.gif": "/Elecard-test-task-react/static/media/preloader.47e35355e3e2b17ecb26.gif",
+    "static/media/logo.svg": "/Elecard-test-task-react/static/media/logo.29757b6fb2e80b1863c2fab7c9d475b4.svg",
+    "index.html": "/Elecard-test-task-react/index.html",
+    "main.1140366f.css.map": "/Elecard-test-task-react/static/css/main.1140366f.css.map",
+    "main.9eaa1677.js.map": "/Elecard-test-task-react/static/js/main.9eaa1677.js.map"
   },
   "entrypoints": [
-    "static/css/main.91b5387c.css",
-    "static/js/main.738e7690.js"
+    "static/css/main.1140366f.css",
+    "static/js/main.9eaa1677.js"
   ]
 }
