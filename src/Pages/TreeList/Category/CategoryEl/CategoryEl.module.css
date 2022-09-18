@@ -1,8 +1,6 @@
 .wrapper {
 	margin-left: 8px;
 	margin-bottom: 10px;
-	padding-left: 20px;
-	border-left: 1px dotted grey;
 	display: flex;
 	align-items: center;
 }

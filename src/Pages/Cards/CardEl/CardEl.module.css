@@ -5,6 +5,7 @@
 	border: 1px solid rgb(175, 171, 171);
 	position: relative;
 	animation: test 0.5s forwards;
+	box-shadow: 0px 0px 10px 1px rgb(139, 139, 139);
 }
 .img {
 	width: 100%;

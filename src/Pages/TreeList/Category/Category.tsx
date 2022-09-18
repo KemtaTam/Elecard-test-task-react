@@ -17,9 +17,11 @@ export const Category: React.FC<PropsType> = ({ category }) => {
 			<div className={s.category} onClick={() => setIsOpen(!isOpen)}>
 				{isOpen ? "▼ " : "▷ "}
 				{/* чтобы сделать первую букву заглавной */}
-				{category.charAt(0).toUpperCase() + category.slice(1)}:{" "}
+				{category.charAt(0).toUpperCase() + category.slice(1)}:
 			</div>
-			{isOpen && filteredData?.map((card) => <CategoryEl key={card.timestamp} card={card} />)}
+			<div className={s.categoryEl_wrapper}>
+				{isOpen && filteredData?.map((card) => <CategoryEl key={card.timestamp} card={card} />)}
+			</div>
 		</div>
 	);
 };
