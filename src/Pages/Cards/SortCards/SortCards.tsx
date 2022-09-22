@@ -1,22 +1,24 @@
 import { Radio } from "antd";
 import { RadioChangeEvent } from "antd/lib/radio";
 import { useActions } from "../../../hooks/actions";
+import { useAppSelector } from "../../../hooks/redux";
 import s from "./SortCards.module.css";
 
 export const SortCards = () => {
 	const { sortCardsDataByCategory, sortCardsData, setCurrentSort, setMinIndex, setMaxIndex } = useActions();
+	const { defaultPageSize } = useAppSelector((state) => state.cards);
 
 	const onChangeSortByCategory = (e: RadioChangeEvent) => {
 		sortCardsDataByCategory(e.target.value.toLowerCase());
 		setCurrentSort({sortCategory: e.target.value, sort: ""});
 		setMinIndex(0);
-		setMaxIndex(8)
+		setMaxIndex(defaultPageSize)
 	};
 	const onChangeSort = (e: RadioChangeEvent) => {
 		sortCardsData(e.target.value.toLowerCase());
 		setCurrentSort({sortCategory: "", sort: e.target.value});
 		setMinIndex(0);
-		setMaxIndex(8)
+		setMaxIndex(defaultPageSize)
 	};
 
 	return (
