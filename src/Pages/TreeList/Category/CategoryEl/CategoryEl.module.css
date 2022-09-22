@@ -12,6 +12,7 @@
 	width: 60px;
 	align-items: center;
 	margin-right: 10px;
+	cursor: pointer;
 }
 .name {
 	font-size: 16px;
@@ -19,4 +20,11 @@
 }
 .card_title {
 	font-weight: 700;
+}
+
+.modal.modal{
+	width: 1000px;
+}
+.img_modale {
+	width: 95%;
 }

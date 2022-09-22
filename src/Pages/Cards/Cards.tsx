@@ -1,5 +1,5 @@
 import { Pagination } from "antd";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import { useGetCardsQuery } from "../../redux/cards/cards.api";
 import { useActions } from "../../hooks/actions";
@@ -13,11 +13,15 @@ import s from "./Cards.module.css";
 export const Cards = () => {
 	const { isLoading, isError, data } = useGetCardsQuery();
 
-	const [minIndex, setMinIndex] = useState(0);
-	const [maxIndex, setMaxIndex] = useState(8);
-
-	const { setAllCardsData, clearRemovedCards } = useActions();
-	const { cardsData } = useAppSelector((state) => state.cards);
+	const {
+		setAllCardsData,
+		clearRemovedCards,
+		sortCardsDataByCategory,
+		sortCardsData,
+		setMinIndex,
+		setMaxIndex,
+	} = useActions();
+	const { cardsData, currentSort, minIndex, maxIndex, defaultPageSize } = useAppSelector((state) => state.cards);
 
 	useEffect(() => {
 		if (data) setAllCardsData(data);
@@ -33,25 +37,32 @@ export const Cards = () => {
 		localStorage.removeItem("removedCards");
 		clearRemovedCards();
 		if (data) setAllCardsData(data);
+		if (currentSort.sortCategory) {
+			sortCardsDataByCategory(currentSort.sortCategory.toLowerCase());
+		}
+		if (currentSort.sort) {
+			sortCardsData(currentSort.sort.toLowerCase());
+		}
 	};
 
 	let sliceData: Array<ICard> = cardsData.slice(minIndex, maxIndex);
 	let someData = sliceData?.map((card) => (
-			<CardEl
-				key={card.timestamp}
-				image={card.image}
-				category={card.category}
-				filesize={card.filesize}
-				timestamp={card.timestamp}
-			/>
+		<CardEl
+			key={card.timestamp}
+			image={card.image}
+			category={card.category}
+			filesize={card.filesize}
+			timestamp={card.timestamp}
+		/>
 	));
 
 	return (
 		<div className={s.wrapper}>
 			<div className={s.pagination_wrapper}>
 				<Pagination
-					defaultPageSize={8}
+					defaultPageSize={defaultPageSize}
 					total={cardsData?.length}
+					showSizeChanger={false}
 					onChange={onChangePagination}
 				/>
 			</div>

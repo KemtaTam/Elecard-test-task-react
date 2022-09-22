@@ -1,22 +1,26 @@
+import { Modal } from "antd";
+import { useState } from "react";
 import { ICard } from "../../../../models/models";
-import { getName } from "../../../../utils/utils";
 import s from "./CategoryEl.module.css";
 
 type PropsType = {
 	card: ICard;
 };
+
 export const CategoryEl: React.FC<PropsType> = ({ card }) => {
 	const imgURL = "http://contest.elecard.ru/frontend_data/" + card.image;
 	const date = new Date(card.timestamp).toLocaleDateString("ru-RU");
-	const name = getName(card.image);
+
+	const [open, setOpen] = useState(false);
 
 	return (
 		<div className={s.wrapper}>
-			<a href={imgURL} target="_blank" rel="noreferrer">
-				<img className={s.img} src={imgURL} alt="img" />
-			</a>
+			<Modal open={open} onCancel={() => setOpen(false)} footer={null} >
+				<img className={s.img_modale} src={imgURL} alt="img" />
+			</Modal>
+			<img className={s.img} src={imgURL} onClick={() => setOpen(true)} alt="img" />
 			<div className={s.information}>
-				<p className={s.name}>{name}</p>
+				<p className={s.name}>{card.image}</p>
 				<div className={s.disk_wrapper}>
 					<p>
 						<span className={s.card_title}>Category: </span>

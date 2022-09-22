@@ -4,14 +4,19 @@ import { useActions } from "../../../hooks/actions";
 import s from "./SortCards.module.css";
 
 export const SortCards = () => {
-	const { sortCardsDataByCategory, sortCardsData, sortCardsDataByName } = useActions();
+	const { sortCardsDataByCategory, sortCardsData, setCurrentSort, setMinIndex, setMaxIndex } = useActions();
 
 	const onChangeSortByCategory = (e: RadioChangeEvent) => {
 		sortCardsDataByCategory(e.target.value.toLowerCase());
+		setCurrentSort({sortCategory: e.target.value, sort: ""});
+		setMinIndex(0);
+		setMaxIndex(8)
 	};
 	const onChangeSort = (e: RadioChangeEvent) => {
-		if (e.target.value === "Image") sortCardsDataByName(e.target.value.toLowerCase());
-		else sortCardsData(e.target.value.toLowerCase());
+		sortCardsData(e.target.value.toLowerCase());
+		setCurrentSort({sortCategory: "", sort: e.target.value});
+		setMinIndex(0);
+		setMaxIndex(8)
 	};
 
 	return (

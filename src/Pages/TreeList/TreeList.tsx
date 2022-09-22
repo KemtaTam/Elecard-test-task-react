@@ -7,11 +7,12 @@ import { Preloader } from "../../Components/Preloader/Preloader";
 
 export const TreeList = () => {
 	const { isLoading, isError, data } = useGetCardsQuery();
-	const { setAllCardsData } = useActions();
+	const { setTreeCardsData } = useActions();
 	const [isOpen, setIsOpen] = useState(false);
 
 	useEffect(() => {
-		if (data) setAllCardsData(data);
+		if (data) setTreeCardsData(data);
+		
 	}, [data]);
 
 	const categories = [
@@ -26,8 +27,8 @@ export const TreeList = () => {
 	];
 
 	let arrOfCategory: Array<ReturnType<typeof Category>> = [];
-	for (let category of categories) {
-		arrOfCategory.push(<Category category={category} />);
+	for (let i=0; i<categories.length; i++) {
+		arrOfCategory.push(<Category key={i} category={categories[i]}/>);
 	}
 
 	return (
