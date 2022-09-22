@@ -6,17 +6,17 @@ import s from "./SortCards.module.css";
 
 export const SortCards = () => {
 	const { sortCardsDataByCategory, sortCardsData, setCurrentSort, setMinIndex, setMaxIndex } = useActions();
-	const { defaultPageSize } = useAppSelector((state) => state.cards);
+	const { defaultPageSize, currentSort } = useAppSelector((state) => state.cards);
 
 	const onChangeSortByCategory = (e: RadioChangeEvent) => {
 		sortCardsDataByCategory(e.target.value.toLowerCase());
-		setCurrentSort({sortCategory: e.target.value, sort: ""});
+		setCurrentSort({sortCategory: e.target.value, sort: currentSort.sort});
 		setMinIndex(0);
 		setMaxIndex(defaultPageSize)
 	};
 	const onChangeSort = (e: RadioChangeEvent) => {
 		sortCardsData(e.target.value.toLowerCase());
-		setCurrentSort({sortCategory: "", sort: e.target.value});
+		setCurrentSort({sortCategory: currentSort.sortCategory, sort: e.target.value});
 		setMinIndex(0);
 		setMaxIndex(defaultPageSize)
 	};

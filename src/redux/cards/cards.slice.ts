@@ -1,6 +1,8 @@
 import { ICard } from "./../../models/models";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+const defaultPageSize = 8;
+
 interface CardsState {
 	cardsData: Array<ICard>;
 	fullCardsData: Array<ICard>;
@@ -21,9 +23,9 @@ const initialState: CardsState = {
 		sortCategory: "",
 		sort: "",
 	},
-	defaultPageSize: 8,
+	defaultPageSize: defaultPageSize,
 	minIndex: 0,
-	maxIndex: 8,
+	maxIndex: defaultPageSize,
 };
 
 export const cardsSlice = createSlice({
